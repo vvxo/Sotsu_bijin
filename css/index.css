@@ -1,0 +1,17 @@
+
+body {
+    background-image:url("../img/top_image.png");
+    background-size:100%;
+}
+
+.btn-default {
+    color: #ffb9b9;
+    background-color: white;
+    border-color: #ffb9b9;
+}
+
+.buttons {
+    position: absolute;
+    right: 27px;
+    top: 507px;
+}

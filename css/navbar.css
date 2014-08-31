@@ -1,0 +1,14 @@
+
+.navbar-default {
+    background-color: #ffb9b9;
+    border-color: #e7e7e7;
+}
+
+.navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle:focus {
+    background-color: white;
+}
+
+.navbar-default .navbar-toggle {
+    border-color: #ddd;
+    background-color: white;
+}

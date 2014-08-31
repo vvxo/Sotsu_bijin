@@ -1,0 +1,101 @@
+
+body {
+    background-image:url("../img/start_image.png");
+    background-size:100%;
+}
+
+.answerbox {
+    font-size: 33px;
+    height: 157px;
+    /* background-color: red; */
+    /* opacity: 0.7; */
+    position: absolute;
+    right: 23px;
+    bottom: 64px;
+    border-radius: 5px;
+    line-height: 150%;
+}
+
+.answer {
+    font-size: 33px;
+    width: 275px;
+    height: 47px;
+    background-color: white;
+    opacity: 0.7;
+    padding: 10px;
+    padding-top: 0px;
+    padding-left: 15px;
+    right: 23px;
+    bottom: 132px;
+    border-radius: 5px;
+    margin-bottom:10px;
+    line-height: 150%;
+}
+
+.btn-default {
+    color: #ffb9b9;
+    background-color: white;
+    border-color: #ffb9b9;
+}
+
+.conversation {
+    font-size: 15px;
+    width: 275px;
+    height: 82px;
+    background-color: white;
+    opacity: 0.7;
+    padding: 15px;
+    padding-top: 23px;
+    position: absolute;
+    right: 23px;
+    bottom: 263px;
+    border-radius: 5px;
+    line-height: 150%;
+}
+
+.microphone {
+
+    background-color: #ffb9b9;
+    border-radius: 30px;
+    /* display: table-row-group; */
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    padding: 10px;
+    bottom: 10px;
+    margin-left: 53%;
+    left: -30px;
+    
+}
+
+.name {
+    font-size: 18px;
+    width: 100px;
+    height: 30px;
+    background-color: white;
+    opacity: 0.9;
+    padding: 3px;
+    padding-top: 2px;
+    padding-left: 23px;
+    position: absolute;
+    left: 30px;
+    bottom: 329px;
+    border-radius: 5px;
+    line-height: 150%;
+}
+
+.yourname {
+    font-size: 18px;
+    width: 100px;
+    height: 30px;
+    background-color: white;
+    opacity: 0.9;
+    padding: 3px;
+    padding-top: 2px;
+    padding-left: 23px;
+    position: absolute;
+    left: 30px;
+    bottom: 227px;
+    border-radius: 5px;
+    line-height: 150%;
+}

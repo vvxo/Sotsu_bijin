@@ -1,0 +1,131 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+<title>【私設研究所Neo-Tech-Lab.com】【パラメータを基にGoogle Text-To-Speech APIを呼びます】</title>
+<script type="text/javascript">
+//*****************************************************
+//【変数定義】
+//*****************************************************
+var NTL_GoogleTTS = {
+   "Browser":   "Unknown", //【ブラウザの種類】Chrome, FireFox, MS_IE, Opera, Safari, Unknown
+   "Count":             0,
+   "URL":              "",
+   "Timer":  new Object(),
+   "Language":         "",
+   "Message":          "",
+   "Double":           ""
+}
+
+function InitializeByParam() { 
+   //【decodeURIComponentでlocation.hrefを日本語文字列に変換する】
+   var data = decodeURIComponent(location.href).split("?")[1]; //【区切り記号?以降のパラメータを取得する】
+   if(data==undefined) {
+      data = "tl=ja&q=エラーが発生しました。パラメータが指定されていません。&double=yes";
+   } else {
+      if(data.indexOf("=")<0) { //旧形式のパラメータ
+         var oldparam = data.split('&');
+         data = "tl=" + oldparam[0] + "&q=" + oldparam[1] + "&double=yes";
+      }
+   }
+   var param = data.split('&'); // 『&』で区切られたパラメータを取得する
+   var arg = new Object();
+   for(var i = 0; param[i]; i++) {
+      var elements = param[i].split('=');
+      arg[elements[0]] = elements[1];
+   }
+   NTL_GoogleTTS.Language = arg["tl"]; //【１つ目のパラメータは言語】
+   NTL_GoogleTTS.Message  = arg["q"];  //【２つ目のパラメータはテキスト】
+   NTL_GoogleTTS.Double = arg["double"];
+   var Number = (new Date().getTime()).toString(); //【イメージ・リフレッシュ用】
+   NTL_GoogleTTS.URL = "http://translate.google.com/translate_tts"
+                     + "?tl=" + NTL_GoogleTTS.Language + "&q=" + NTL_GoogleTTS.Message + "&dummy=" + Number;
+   NTL_GoogleTTS.Count = 0;
+   NTL_GoogleTTS.Browser = NTL_CheckYourBrowser(); //【ブラウザが何か調べる】
+   var br = NTL_GoogleTTS.Browser;
+   if(br=="MS_IE") {
+      NTL_GoogleTTS.Timer = setTimeout("GoogleTTS_ChildPage()", 50);
+      return;
+   }
+   if(br=="FireFox") {
+      GoogleTTS_Object();
+      NTL_GoogleTTS.URL = "http://translate.google.com/translate_tts"
+                        + "?tl=" + NTL_GoogleTTS.Language + "&q=" + NTL_GoogleTTS.Message;
+      GoogleTTS_Object();
+      NTL_GoogleTTS.Timer = setTimeout("GoogleTTS_ChildPage()", 50);
+      return;
+   }
+   if((br=="Chrome")||(br=="Opera")||(br=="Safari")) {
+      GoogleTTS_Common();
+      if(NTL_GoogleTTS.Double=="yes") { GoogleTTS_Common(); }
+      return;
+   }
+}
+
+//*******************************************************
+//【iframeを使って指定URLに送信】
+//*******************************************************
+function GoogleTTS_Common() {
+   var base=document.getElementById("Voice");
+   var obj=document.createElement("iframe");
+   obj.setAttribute("border", "0");
+   obj.setAttribute("frameborder", "0");
+   obj.style.width = 390;
+   obj.style.height = 39;
+   obj.setAttribute("type","audio/mpeg");
+   obj.src = NTL_GoogleTTS.URL;
+   base.appendChild(obj);
+}
+
+function GoogleTTS_Object() { 
+   var base=document.getElementById("Voice");
+   var obj=document.createElement("audio");
+   obj.type = "audio/mpeg";
+   obj.width = 390;
+   obj.height = 39;
+   obj.setAttribute("autoplay","true");
+   obj.setAttribute("controls","true");
+   obj.src = NTL_GoogleTTS.URL;
+   base.appendChild(obj);
+}
+
+//*******************************************************
+//【新規ウィンドウを指定URLで開く】
+//*******************************************************
+function GoogleTTS_ChildPage() { 
+   clearTimeout(NTL_GoogleTTS.Timer);
+   if(NTL_GoogleTTS.Count==0) {
+      NTL_GoogleTTS.TTS = window.open(NTL_GoogleTTS.URL, "_media", "height=39,width=139,top=100,left=1080"); 
+      NTL_GoogleTTS.Timer = setTimeout("GoogleTTS_ChildPage()", 25000); //【20秒後にclose】
+      NTL_GoogleTTS.Count++;
+   } else {
+      NTL_GoogleTTS.TTS.close();
+   }
+}
+
+//*****************************************************
+//【ブラウザの種類を判別】★反転順序は重要。変更不可。
+//*****************************************************
+function NTL_CheckYourBrowser() {
+   var userAgent = window.navigator.userAgent.toLowerCase(); //【小文字に変換】
+   if(userAgent.indexOf('chrome') != -1)  { return "Chrome";  }
+   if(userAgent.indexOf('apple') != -1)   { return "Safari";  }
+   if(userAgent.indexOf('firefox') != -1) { return "FireFox"; }
+   if(userAgent.indexOf('msie') != -1)    { return "MS_IE";   }
+   if(userAgent.indexOf('opera') != -1)   { return "Opera";   }
+   return "Unknown";
+}
+
+//*****************************************************
+//【初期化】
+//*****************************************************
+window.onload = function() {
+   InitializeByParam();
+}
+</script>
+</head>
+
+<body> 
+<div id="Voice" name="Voice"></div>
+</body>
+</html>

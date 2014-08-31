@@ -1,0 +1,66 @@
+<!DOCTYPE HTML>
+<html lang="ja">
+<head>
+	<meta charset="UTF-8">
+	<title>Web Speech API Test</title>
+</head>
+<body>
+	<script>
+		// 行って欲しい言葉
+		var WORD = 'ほげほげ';
+
+		// NOTE: Chromeでのみ動く
+		var recognition = new webkitSpeechRecognition();
+
+		// recognition.lang = 'zh';
+
+		// 入力が終わったら読み取った音声をチェック
+		recognition.onresult = function(event) {
+			var results = event.results[0],
+				matched = false;
+
+			// ミニマム案：完全一致
+			for(var i = 0; i < results.length; i++) {
+				console.log(results[i].transcript);
+				if(results[i].transcript === WORD) matched = true
+			}
+
+			if(matched) {
+				//【指定言語:tl】
+				// - ja:日本語
+				// - en:英語
+				// - es:スペイン語
+				// - it:イタリア語
+				// - fr:フランス語
+				// - de:ドイツ語
+				// - ru:ロシア語
+				// - nl:ｵﾗﾝﾀﾞ語
+				// - el:ｷﾞﾘｼｬ語
+				// - pt:ﾎﾟﾙﾄｶﾞﾙ語
+				// - pl:ﾎﾟｰﾗﾝﾄﾞ語
+				// - zh-CN:中国語
+				// - ko:韓国語
+				var language = "zh-CN";
+				var message = "こんにちは。いつも、しせつ研究所ネオテックラボをご利用いただきありがとうございます。私はGoogleテキストツースピーチの日本語女性アナウンサーです。よろしくね";
+				var double = "no"; //★"yes"あるいは"no"
+				var number = (new Date().getTime()).toString(); //【イメージ・リフレッシュ用】
+				var base = document.getElementById("GoogleTTS");
+				var Obj = document.createElement('iframe');
+				Obj.src = "GoogleTTSx.htm?tl=" + language + "&q=" + message + "&double=" + double +"&dummy=" + number;
+				base.appendChild(Obj);
+				// do something...
+			}
+		};
+	</script>
+
+	<form>
+		<input type="button" value="Talk!" onclick="recognition.start()" />
+		<input type="button" value="Stop!" onclick="recognition.stop()" />
+	</form>
+
+	<div id="audio"></div>
+
+	<div id="GoogleTTS" name="GoogleTTS" style="visibility:hidden;"></div>
+
+</body>
+</html>

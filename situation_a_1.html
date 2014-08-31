@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+        <title>疏通美人 - 実践型恋愛シミュレーション</title>
+        
+
+        <!-- Bootstrap -->
+        <link href="css/bootstrap/bootstrap.min.css" rel="stylesheet">
+        <link href="css/default.css" rel="stylesheet">
+        <link href="css/question_1.css" rel="stylesheet">
+        <link href="css/situation_a_1.css" rel="stylesheet">
+        <link href="css/navbar.css" rel="stylesheet">
+        
+ 
+        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+        <![endif]-->
+
+    </head>
+    
+    <body>
+        <header>
+            <!--   ナビゲーションバー ここから  -->
+            <nav class="navbar navbar-default" role="navigation">
+                <div class="navbar-header" style="position: relative;">
+                    <a href="index.html" class="navbar-brand">
+                        <font color="white">疏通美人</font>
+                    </a>
+                    
+                    <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse" style=" position: absolute; top:0; right: 0px">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                </div>
+                
+                <nav class="navbar-collapse bs-navbar-collapse collapse" role="navigation" style="height: 1px; margin-left: 10px;">
+                    <ul class="nav navbar-nav">
+                        <li>
+                            <a href="index.html"><font color="white">Content 1</font></a>
+                        </li>
+                    </ul>
+                </nav>
+            </nav>
+            <!--   ナビゲーションバー ここまで   -->
+        </header>
+        
+        <!--   bgsound     -->
+        <audio id="background_audio" autoplay="autoplay">
+            <source src="sound/start.mp3" type="audio/mpeg" />
+        </audio>
+        
+        <!--   pop-up    -->
+        <!-- Large modal -->
+
+        <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" id="myModal">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    
+                    <center><i class="glyphicon glyphicon-heart" role="button" style="color:#ffb9b9"></i>
+                    <font size="5px" style="font-weight:bold; margin-left: 6px;"><br>正解</font>
+                    
+                    <div class="qanswer">
+                        <!--     ここにテキストデータ       -->
+                        
+                            <ruby>
+                                <rb>你好吗</rb>
+                                <rp>(</rp>
+                                <rt>nǐ hǎo ma</rt>
+                                <rp>)</rp>
+                            </ruby>？
+                            <p style="font-size:10px;">お元気ですか？</p>
+                        
+                    </div>
+                    
+                    <div class="answerbox">
+                        <ul>
+                            <li>
+                                <div class="answer" style=" font-size: 15px; padding-top: 8px;">
+                                        <ruby>
+                                            <rb>我很好</rb>
+                                            <rp>(</rp>
+                                            <rt>wǒ hěn hǎo</rt>
+                                            <rp>)</rp>
+                                        </ruby>。
+                                        <p style="font-size:10px;">私はとても元気です。</p>
+                                </div>
+                            </li>
+                            
+                            <li>
+                                <div class="answer" style=" font-size: 15px; padding-top: 8px;">
+                                    <ruby>
+                                        <rb>我很好</rb>
+                                        <rp>(</rp>
+                                        <rt>wǒ hěn hǎo</rt>
+                                        <rp>)</rp>
+                                    </ruby>。
+                                    <p style="font-size:10px;">私はとても元気です。</p>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="answer" style=" font-size: 15px; padding-top: 8px;">
+                                    <ruby>
+                                        <rb>我很好</rb>
+                                        <rp>(</rp>
+                                        <rt>wǒ hěn hǎo</rt>
+                                        <rp>)</rp>
+                                    </ruby>。
+                                    <p style="font-size:10px;">私はとても元気です。</p>
+                                </div>
+                            </li>
+                            
+                            <ul>
+                                
+                            </ul></ul></div>
+                    </center>
+
+                </div>
+            </div>
+        </div>
+        
+        <div class="conversation">
+            <!--     ここにテキストデータ       -->
+            <font size="5px"><ruby>
+                <rb>你到哪儿去</rb>
+                <rp>(</rp>
+                <rt>Nǐ dào nǎr qù</rt>
+                <rp>)</rp>
+            </ruby>？</font><p>
+            <font color="gray">あなたはどこへいきますか？</font>
+        </div>
+        
+        <div class="name">
+             <!--     ここに名前データ       -->
+            女の子
+            
+        </div>
+        
+
+               
+        <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        <!-- Include all compiled plugins (below), or include individual files as needed -->
+        <script src="js/bootstrap.min.js"></script>
+        
+        <!-- Window(page)がロードされた時, modalを開く. -->
+        <script type="text/javascript">
+            $(window).load(function(){
+                           $('#myModal').modal('show');
+                           });
+            </script>
+    </body>
+</html>
+
+

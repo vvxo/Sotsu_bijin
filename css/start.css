@@ -1,0 +1,42 @@
+
+body {
+    background-image:url("../img/start_image.png");
+    background-size:100%;
+}
+
+.btn-default {
+    color: #ffb9b9;
+    background-color: white;
+    border-color: #ffb9b9;
+}
+
+.conversation {
+    font-size: 15px;
+    width: 275px;
+    height: 103px;
+    background-color: white;
+    opacity: 0.7;
+    padding: 15px;
+    padding-top: 28px;
+    position: absolute;
+    right: 23px;
+    bottom: 21px;
+    border-radius: 5px;
+    line-height: 150%;
+}
+
+.name {
+    font-size: 18px;
+    width: 100px;
+    height: 30px;
+    background-color: white;
+    opacity: 0.9;
+    padding: 3px;
+    padding-top: 2px;
+    padding-left: 23px;
+    position: absolute;
+    left: 30px;
+    bottom: 106px;
+    border-radius: 5px;
+    line-height: 150%;
+}
