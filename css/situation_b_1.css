@@ -1,0 +1,116 @@
+
+body {
+    background-image:url("../img/start_image.png");
+    background-size:100%;
+}
+
+.answer {
+    font-size: 33px;
+    width: 270px;
+    height: 64px;
+    background-color: #e0ffff;
+    opacity: 0.7;
+    padding: 10px;
+    padding-top: 0px;
+    padding-left: 35px;
+    padding-right: 15px;
+    right: 23px;
+    bottom: 132px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    margin-right: 0px;
+    line-height: 150%;
+}
+
+.answerbox {
+    font-size: 33px;
+    height: 212px;
+    width: 279px;
+    /* background-color: red; */
+    /* opacity: 0.7; */
+    position: absolute;
+    right: 9px;
+    bottom: 14px;
+    border-radius: 5px;
+    line-height: 150%;
+}
+
+.btn-default {
+    color: #ffb9b9;
+    background-color: white;
+    border-color: #ffb9b9;
+}
+.conversation {
+    font-size: 15px;
+    width: 275px;
+    height: 103px;
+    background-color: white;
+    opacity: 0.7;
+    padding: 15px;
+    padding-top: 28px;
+    position: absolute;
+    right: 23px;
+    bottom: 21px;
+    border-radius: 5px;
+    line-height: 150%;
+}
+
+.qanswer {
+    font-size: 24px;
+    width: 275px;
+    height: 103px;
+    background-color: rgb(255, 255, 255);
+    opacity: 0.7;
+    padding: 15px;
+    padding-top: 16px;
+    padding-left: 34px;
+    position: absolute;
+    right: 11px;
+    bottom: 254px;
+    border-radius: 5px;
+    line-height: 150%;
+}
+
+.glyphicon {
+    position: relative;
+    top: 1px;
+    display: inline-block;
+    font-family: 'Glyphicons Halflings';
+    font-style: normal;
+    font-weight: 40;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-size: 100px;
+}
+
+.name {
+    font-size: 18px;
+    width: 100px;
+    height: 30px;
+    background-color: white;
+    opacity: 0.9;
+    padding: 3px;
+    padding-top: 2px;
+    padding-left: 23px;
+    position: absolute;
+    left: 30px;
+    bottom: 106px;
+    border-radius: 5px;
+    line-height: 150%;
+}
+
+.modal-content {
+    position: relative;
+    background-color: #fff;
+    -webkit-background-clip: padding-box;
+    background-clip: padding-box;
+    border: 1px solid #999;
+    border: 1px solid rgba(0,0,0,.2);
+    border-radius: 6px;
+    outline: 0;
+    -webkit-box-shadow: 0 3px 9px rgba(0,0,0,.5);
+    box-shadow: 0 3px 9px rgba(0,0,0,.5);
+    height: 545px;
+    padding: 30px;
+}
